@@ -9,7 +9,7 @@
 
 import tkinter as tk
 
-# Conversion factor
+# Conversion rate
 MPG_TO_KPL = 0.425143707
 
 def convert(*args):
@@ -19,28 +19,28 @@ def convert(*args):
         kpl = mpg * MPG_TO_KPL
         result_var.set(f"{kpl:.3f} Km/L")
     except ValueError:
-        # If input is invalid (letters, empty, etc.), clear result
+        # If input is a letter clear output
         result_var.set("")
 
-# Create main window
+# window 1 option
 root = tk.Tk()
 root.title("MPG to Km/L Converter")
 
-# Input label
+# Input 
 tk.Label(root, text="Miles per Gallon (MPG):").grid(row=0, column=0, padx=10, pady=10)
 
-# Input box
+# Input enter
 mpg_entry = tk.Entry(root)
 mpg_entry.grid(row=0, column=1, padx=10, pady=10)
 mpg_entry.bind("<KeyRelease>", convert)  # Update result on every key press
 
-# Result label
+# Result 
 tk.Label(root, text="Kilometers per Liter (Km/L):").grid(row=1, column=0, padx=10, pady=10)
 
-# Result display
+
 result_var = tk.StringVar()
 result_label = tk.Label(root, textvariable=result_var, font=("Arial", 12, "bold"))
 result_label.grid(row=1, column=1, padx=10, pady=10)
 
-# Run the application
+# Runs
 root.mainloop()
